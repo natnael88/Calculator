@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8"/>
+
+<meta name="author" content="Natnael"/>
+
+<title>Calculator</title>
+
+<script src="jquery-3.4.1.min.js"></script>
+
+<style type="text/css">
+
+body{
+   background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(bkg-blu.jpg) no-repeat;
+   background-size: cover;
+}
+.container{
+    max-width: 325px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	
+}
+
+#txt{
+    margin: 3px;
+    padding: 0;
+    width: 320px;
+    height: 60px;
+    font: 200 32px consolas;
+    border: none;
+    border-radius: 5px;
+}
+
+.container_two{
+    width: 320px;
+    background-color: #333;
+    height: 45px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+#clear_btn{
+    height: 25px;
+    width: 70px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font: 200 16px consolas;
+    color: #fff;
+    background-color: #555;
+    border: 2px solid #333;
+    border-radius: 3px;
+}
+
+.calc_btn input[type='button']{
+    color: #000000;
+    background-color: white;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 25px 30px;
+    font: 200 22px consolas;
+}
+
+#operator{
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+#equal_btn{
+    background-color: #FF5722;
+    color: #fff;
+    border-color: #FF5722;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<input id="txt" name="txt" type="text">
+
+<div class="container_two">
+
+<input type="button" id="clear_btn" value="<-" onclick="back()">
+
+</div>
+
+<table class="calc_btn">
+    <tr>
+        <td><input type="button" value="7" onclick="insert('7')"></td>
+        <td><input type="button" value="8" onclick="insert('8')"></td>
+        <td><input type="button" value="9" onclick="insert('9')"></td>
+        <td><input type="button" id="operator" value="/" onclick="insert('/')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="insert('4')"></td>
+        <td><input type="button" value="5" onclick="insert('5')"></td>
+        <td><input type="button" value="6" onclick="insert('6')"></td>
+        <td><input type="button" id="operator" value="*" onclick="insert('*')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="insert('1')"></td>
+        <td><input type="button" value="2" onclick="insert('2')"></td>
+        <td><input type="button" value="3" onclick="insert('3')"></td>
+        <td><input type="button" id="operator" value="-" onclick="insert('-')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" id="operator" value="." onclick="insert('.')"></td>
+        <td><input type="button" value="0" onclick="insert('0')"></td>
+        <td><input type="button" id="equal_btn" value="=" onclick="equal()"></td>
+        <td><input type="button" id="operator" value="+" onclick="insert('+')"></td>
+    </tr>
+</table>
+
+</div>
+
+<script type="text/javascript">
+
+var txt = document.getElementById("txt");
+
+function insert(num){
+
+txt.value = txt.value + num;
+
+}
+
+function back(){
+
+var x = document.getElementById("txt").value;
+
+document.getElementById("txt").value = x.substring(0,x.length-1);
+
+}
+
+function equal(){
+
+txt.value = eval(txt.value);
+  
+}
+
+</script>
+
+</body>
+
+</html>
